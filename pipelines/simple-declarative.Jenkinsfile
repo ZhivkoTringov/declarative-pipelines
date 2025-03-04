@@ -1,21 +1,10 @@
 pipeline {
     agent any
     
-    environment {
-        SENTENCE = " What are you think you are doing?"
-    }
     stages {
-        stage('Hello'){
+        stage('SCM'){
             steps {
-                echo 'Hello World!'
-                
-                script {
-                    def words = env.SENTENCE.split(' ')
-                    
-                    for (word in words){
-                        echo word
-                    }
-                }
+          	   git branch: 'main', credentialsId: '1112', url: 'git@github.com:ZhivkoTringov/declarative-pipelines.git'
             }
         }
     }
