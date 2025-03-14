@@ -1,6 +1,10 @@
 pipeline {
     agent any
     
+    pamaeters{
+        string("name: 'branch', defaulValue: 'main', description: 'The branch to fetch for the pipeline'")
+    }
+
     triggers{
         cron('0 3 * * 1-5')
     }
@@ -16,6 +20,16 @@ pipeline {
                 echo "build the code"
             }
             
+        }
+        stage('Package') {
+            when {
+                expression {
+                    return parmas.branch == "release"
+                }
+            }
+            steps {
+                echo 'Packaging the code release'
+            }
         }
     }
 }
