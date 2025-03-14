@@ -1,7 +1,7 @@
 pipeline {
     agent any
     
-    pamaeters{
+    parameters{
         string("name: 'branch', defaulValue: 'main', description: 'The branch to fetch for the pipeline'")
     }
 
