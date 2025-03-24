@@ -1,20 +1,11 @@
 pipeline {
     agent any
     
-    parameters{
-        string(name: 'branch', defaultValue: 'main', description: 'The branch to fetch for the pipeline')
-    }
-
     triggers{
         cron('0 3 * * 1-5')
     }
 
     stages {
-        stage('SCM'){
-            steps {
-          	   git branch: "${params.branch}", credentialsId: '1112', url: 'git@github.com:ZhivkoTringov/declarative-pipelines.git'
-            }
-        }
         stage('build') {
             steps{
                 echo "build the code"
