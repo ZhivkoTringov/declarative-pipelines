@@ -1,7 +1,7 @@
 pipeline{
     agent any
 
-    environmet{
+    environment{
         ARTIFACT_SOURCE_DIRECTORY = "test/*.xml"
     }
     stages{
