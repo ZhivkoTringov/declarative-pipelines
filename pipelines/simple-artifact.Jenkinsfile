@@ -1,7 +1,7 @@
 pipeline{
     agent any
 
-    environment{
+    environmen t{
         ARTIFACT_SOURCE_DIRECTORY = "test/*.xml"
     }
     stages{
@@ -14,6 +14,11 @@ pipeline{
             steps{
                 echo 'Execute unit tests'
                 sh 'mkdir -p tests && echo "test results" > tests/testresults.xml'
+            }
+        }
+        stage('Artifact'){
+            steps{
+                archiveArtifacts artifacts: ARTIFACT_SOURCE_DIRECTORY, followSymlinks: false
             }
         }
     }
