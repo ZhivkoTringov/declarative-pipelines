@@ -5,7 +5,7 @@ pipeline{
 
         booleanParam(name: 'isAdmim', defaultValue: false, description: 'Whether or not the current user is admin')
 
-        choice(name: targetEnvironment, choices: ['dev', 'staging', 'qa', 'production'], description: "The target environment")
+        choice(name: 'targetEnvironment', choices: ['dev', 'staging', 'qa', 'production'], description: "The target environment")
     }
     
     stages{
